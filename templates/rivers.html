@@ -1,0 +1,44 @@
+<ion-view title="Rivers">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <form class="list">
+            <label class="item item-select">
+                <span class="input-label bangers white ">Difficulty</span>
+                <select class="bangers" ng-model="tripFilter" ng-options="filter.type group by filter.group for filter in riverFilter">
+                     <option class=" bangers" value="">-- trip type --</option>
+                </select>
+            </label>
+        </form>
+        <div class="list card" ng-repeat="river in rivers | filter:tripFilter.type">
+            <div class="item item-divider">
+                <h3 ng-class="captiontitle"><span class=" bangers white">{{ river.name }} - &nbsp;{{river.location}} </span></h3></div>
+            <a ui-sref="river({ river: river.id })"><img class="caption__media-sm" ng-src="{{river.image}}" alt="" />
+                <div class="row center white bangers">
+
+                    <div class="col-25">
+                        <i class="icon ion-alert-circled "></i>
+
+                        <br> {{ river.class }}
+                    </div>
+                    <div class="col-25">
+                        <i class="icon ion-ios-body "></i>
+
+                        <br> {{ river.age }}
+                    </div>
+                    <div class="col-25">
+                        <i class="icon ion-clock"></i>
+
+                        <br> {{ river.length }}
+                    </div>
+                    <div class="col-25 ">
+
+                        <i class="icon ion-android-sunny"></i>
+
+
+                        <br> {{ river.season }}
+                    </div>
+                </div>
+
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

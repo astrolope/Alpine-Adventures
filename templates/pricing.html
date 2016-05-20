@@ -1,0 +1,38 @@
+<ion-view title="Pricing">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <form class="list">
+            <label class="item item-select bangers">
+                <span class="input-label white">Trip Type</span>
+                <select class="bangers" ng-model="tripFilter" ng-options="filter.type group by filter.group for filter in riverFilter">
+                     <option class=" bangers red-links" value="">-- trip type --</option>
+                </select>
+            </label>
+            <ion-item  class="range range-positive bangers white">Group Size
+                <input ng-init="groupSize"  ng-model="groupSize" type="range" ng-change="checkGroupSize(groupSize)" max="25">
+                {{groupSize}}
+            </ion-item>
+        </form>
+
+        <div class="list card">
+
+            <div class="item item-body white">
+                
+              <div class=" row bangers assertive">
+                <div class="col"> <a class="red-links" href="" ng-click="order('location')">Location</a></div>
+                <div class="col" ><a class="red-links"  href="" ng-click="order('class')">Class</a></div>
+                
+                <div class="col"><a class="red-links"  href="" ng-click="order('price')">Price*</a></div>
+              </div>
+
+                
+                  <div class="row" ng-repeat="river in rivers | filter:tripFilter.type | orderBy:predicate:reverse">
+                    <div class="col">{{ river.name }}</div>
+                    <div class="col" >{{ river.class }}</div>
+                    
+                    <div class="col"><strong>{{ river.price - modifier  | currency }}</strong></div>
+                    </div>
+            </div>
+             <p><small class="center white bangers padding">* indicates per person. <br>  Note: This is to be used for estimation purposes only and may not reflect your final divip price based on meal packages and local tax.</small></p>
+        </div>
+    </ion-content>
+</ion-view>

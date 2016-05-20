@@ -1,0 +1,71 @@
+<ion-view title="Trips">
+
+  <ion-content overflow-scroll="true" padding="true" class="has-header">
+
+    <div class="container rancho">
+
+      <div class="card">
+        <div class="item item-divider center">
+          <h2 ng-class="captiontitle"><span class=" bangers white">{{ river.name }} - &nbsp;{{river.location}} </span>
+          
+          </h2>
+          </div>
+        <div class="image">
+          <ion-slide-box>
+            <ion-slide ng-repeat="image in river.images">
+              <img class="caption__media-sm" ng-src="{{image.image}}" alt="" />
+            </ion-slide>
+
+          </ion-slide-box>
+          <div class="row center white bangers">
+
+            <div class="col-25">
+              <i class="icon ion-alert-circled "></i>
+
+              <br> {{ river.class }}
+            </div>
+            <div class="col-25">
+              <i class="icon ion-ios-body "></i>
+
+              <br> {{ river.age }}
+            </div>
+            <div class="col-25">
+              <i class="icon ion-clock"></i>
+
+              <br> {{ river.length }}
+            </div>
+            <div class="col-25 ">
+
+              <i class="icon ion-android-sunny"></i>
+
+
+              <br> {{ river.season }}
+            </div>
+          </div>
+          <br>
+
+
+        </div>
+      </div>
+      
+
+      <button ng-if="river.lat" ng-click="openNavigator(river.lat, river.long)" id="alpineAdventures-button4" class="button button-assertive  button-block">
+    Open In Maps
+  </button>
+
+      <div class="card">
+        
+          <div class="item item-divider center">
+          <h2 ng-class="captiontitle"><span class=" bangers white">Trip Description </span>
+          
+          </h2>
+          </div>
+
+        <p class="description white padding">{{ river.description }}</p>
+      </div>
+
+
+      <small class="center bangers white padding">* depending on water levels.</small>
+    </div>
+  </ion-content>
+</ion-view>
